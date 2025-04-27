@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Math Murder - By RYUMA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(-45deg, #1a0025, #33004d, #660080, #cc00ff);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      font-family: 'Orbitron', 'Rajdhani', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      background: rgba(30, 0, 50, 0.9);
+      padding: 50px 30px;
+      border-radius: 25px;
+      box-shadow: 0 0 30px #ff00ff, 0 0 60px #ff00ff;
+      text-align: center;
+      width: 90%;
+      max-width: 650px;
+      animation: pulseGlow 2s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from {
+        box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+      }
+      to {
+        box-shadow: 0 0 40px #ff55ff, 0 0 70px #ff55ff;
+      }
+    }
+
+    h1 {
+      font-size: 55px;
+      color: #ff55ff;
+      text-shadow: 0 0 15px #ff00ff, 0 0 25px #ff00ff;
+      margin-bottom: 15px;
+      animation: flicker 2s infinite alternate;
+    }
+
+    h3 {
+      font-size: 24px;
+      color: #ddd;
+      letter-spacing: 3px;
+      margin-bottom: 30px;
+    }
+
+    @keyframes flicker {
+      0% {opacity: 1;}
+      50% {opacity: 0.7;}
+      100% {opacity: 1;}
+    }
+
+    textarea {
+      width: 100%;
+      height: 180px;
+      background: #1a0033;
+      color: #ff99ff;
+      border: 2px solid #ff00ff;
+      border-radius: 15px;
+      padding: 15px;
+      font-size: 16px;
+      resize: none;
+      margin-bottom: 25px;
+      transition: 0.4s;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #ff55ff;
+      box-shadow: 0 0 15px #ff55ff;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: transparent;
+      color: #ff55ff;
+      border: 2px solid #ff00ff;
+      border-radius: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    button::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -100%;
+      left: -50%;
+      background: radial-gradient(circle, #ff00ff 0%, transparent 50%);
+      transform: rotate(45deg);
+      transition: all 0.7s ease;
+      opacity: 0;
+    }
+
+    button:hover::before {
+      top: -10%;
+      left: -10%;
+      opacity: 1;
+    }
+
+    button:hover {
+      background: #ff00ff;
+      color: #1a0033;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Math Murder</h1>
+  <h3>By RYUMA</h3>
+  <textarea id="script" readonly>loadstring(game:HttpGet("https://raw.githubusercontent.com/RyumaHub/5/refs/heads/main/Math%20Murder.Lua"))()</textarea>
+  <button onclick="copyScript()">Copy Script</button>
+  <div class="footer">Created by RyumaHub | All rights reserved</div>
+</div>
+
+<script>
+function copyScript() {
+  var textarea = document.getElementById("script");
+  textarea.select();
+  textarea.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  let button = document.querySelector("button");
+  button.textContent = "Script Copied!";
+  setTimeout(() => {
+    button.textContent = "Copy Script";
+  }, 2000);
+}
+</script>
+
+</body>
+</html>
